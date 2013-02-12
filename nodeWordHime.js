@@ -71,6 +71,7 @@ function startServer(request, response) {
           if (wordsMode == 0) randomNumber = Math.floor(Math.random()*fileLines) + 1; // from 1 to 'fileLines'
           if (wordsMode == 2) { //GREP MODE
             var getGrepExec = require("child_process").exec;
+            grepPattern = decodeURI(grepPattern);
             var getGrep = getGrepExec('cat ./list/' + fileName +' | grep ' + grepPattern , 
               function (err, stout, sterr){
                 //finalOutput += "GREP MODE : " + grepPattern + "\n";
